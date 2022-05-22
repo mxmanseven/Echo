@@ -1,3 +1,3 @@
 SELECT
 *
-FROM product
+FROM message_statistics
