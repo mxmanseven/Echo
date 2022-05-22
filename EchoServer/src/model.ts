@@ -2,66 +2,66 @@ import {Entity, PrimaryGeneratedColumn, Column, createConnection, Connection, Re
 
 let connection:Connection;
 
-export async function getProductRepository(): Promise<Repository<Product>> {
-//export async function getProductRepository(): Promise<Repository<MessageStatistics>> {
+//export async function getProductRepository(): Promise<Repository<Product>> {
+export async function getProductRepository(): Promise<Repository<MessageStatistics>> {
   if (connection===undefined) {
     connection = await createConnection({
       type: 'sqlite',
       database: 'echo.db',
       synchronize: true,
       entities: [
-        Product
-        //MessageStatistics
+        //Product
+        MessageStatistics
       ],
     });
   }
-  return connection.getRepository(Product);
-  //return connection.getRepository(MessageStatistics);
+  //return connection.getRepository(Product);
+  return connection.getRepository(MessageStatistics);
 }
 
 
-// @Entity()
-// export class MessageStatistics {
-//   @PrimaryGeneratedColumn()
-//   id: number;
-
-//   @Column()
-//   sourceIpAddress: string;
-
-//   @Column()
-//   messageCount: number;
-
-//   @Column()
-//   averageLength: number;
-
-//   @Column()
-//   meanLength: number;
-
-//   @Column()
-//   minLength: number;
-
-//   @Column()
-//   maxLength: number;
-// }
-
-
 @Entity()
-export class Product {
+export class MessageStatistics {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column('varchar', {nullable: true})
-  name: string;
+  sourceIpAddress: string;
 
-  @Column('varchar', {nullable: true})
-  sku: string;
+  @Column({nullable: true})
+  messageCount: number;
 
-  @Column('varchar', {nullable: true})
-  description: string;
+  @Column({nullable: true})
+  averageLength: number;
 
-//   @Column()
-//   price: number;
+  @Column({nullable: true})
+  meanLength: number;
 
-//   @Column()
-//   stock: number;
+  @Column({nullable: true})
+  minLength: number;
+
+  @Column({nullable: true})
+  maxLength: number;
 }
+
+
+// @Entity()
+// export class Product {
+//   @PrimaryGeneratedColumn()
+//   id: number;
+
+//   @Column('varchar', {nullable: true})
+//   name: string;
+
+//   @Column('varchar', {nullable: true})
+//   sku: string;
+
+//   @Column('varchar', {nullable: true})
+//   description: string;
+
+// //   @Column()
+// //   price: number;
+
+// //   @Column()
+// //   stock: number;
+// }

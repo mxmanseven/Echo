@@ -8,7 +8,8 @@ const app = express()
   .use(cors())
   .use(bodyParser.json())
   .use(bearerToken())
-  .use(productRouter);
+  .use(productRouter)
+  .set('trust proxy', true);
 
 app.listen(4201, () => {
   return console.log('My Node App listening on port 4201');

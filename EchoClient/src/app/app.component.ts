@@ -21,8 +21,11 @@ export class AppComponent implements OnInit{
   }
 
   async sendMessage(message) {
+
+    let request: any = {};
+    request['message'] = message;
     this.response = await this.echoService
-      .createMessage(message);
+      .createMessage(request);
     console.log(this.response);
   }
 }
