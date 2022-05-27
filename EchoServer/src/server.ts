@@ -1,14 +1,12 @@
 import * as express from 'express';
 import * as cors from 'cors';
 import * as bodyParser from 'body-parser';
-const bearerToken = require('express-bearer-token');
-import {router as productRouter} from './product'
+import {router} from './messageController'
 
 const app = express()
   .use(cors())
   .use(bodyParser.json())
-  .use(bearerToken())
-  .use(productRouter)
+  .use(router)
   .set('trust proxy', true);
 
 app.listen(4201, () => {

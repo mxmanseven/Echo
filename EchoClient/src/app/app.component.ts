@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { MessageStatistics } from './messageStatistics';
+import { Message } from './message';
 import { EchoService } from './echo.service';
 
 @Component({
@@ -11,7 +11,6 @@ export class AppComponent implements OnInit{
   title = 'EchoClient';
   
   messageRequest: string = "";
-  //messageStatisticsResponse: MessageStatistics = new MessageStatistics();
   response: string = "";
 
   constructor(public echoService: EchoService) {
@@ -20,12 +19,9 @@ export class AppComponent implements OnInit{
   ngOnInit() {
   }
 
-  async sendMessage(message) {
-
-    let request: any = {};
-    request['message'] = message;
-    this.response = await this.echoService
-      .createMessage(request);
-    console.log(this.response);
+  async sendMessage(messageString) {
+    let message: Message = new Message();
+    message.message = messageString;
+    this.response = await this.echoService.createMessage(message);
   }
 }
