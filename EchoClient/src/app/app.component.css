@@ -1,0 +1,7 @@
+
+.ng-invalid.ignore-ng-invalid {
+    background-color: rgba(255, 128, 128, 0.0);
+}
+.ng-invalid {
+    background-color: rgba(255, 128, 128, 0.2);
+}

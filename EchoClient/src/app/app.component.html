@@ -14,22 +14,29 @@
     rows="1" cols="80"></textarea>
 </div> -->
 
-<div>
-  <label>Message</label>
-  <textarea 
-    #message
-    rows="3" cols="80"></textarea>
-</div>
+<form 
+  [formGroup]="echoForm" 
+  (ngSubmit)="sendMessage"
+  class="ignore-ng-invalid" >
 
-<!-- <div><input type="button" value="Send Message"></div> -->
+  <div>
+    <label>Message</label>
+    <textarea 
+      id="message"
+      formControlName="message"
+      name="message"
+      rows="3" cols="80"></textarea>
+  </div>
 
-<button (click)="sendMessage(message.value)">Send Message</button>
+  <button *ngIf="echoForm.get('message')?.valid"
+    (click)="sendMessage()">Send Message</button>
 
-<div>
-  <label>Response</label> 
-  <textarea 
-    readonly
-    rows="10" cols="80">{{response | json}}</textarea>
-</div>
+  <div *ngIf="response" >
+    <label>Response</label> 
+    <textarea 
+      readonly
+      rows="10" cols="80">{{response | json}}</textarea>
+  </div>
+</form>
 
 <router-outlet></router-outlet>

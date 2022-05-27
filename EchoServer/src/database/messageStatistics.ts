@@ -1,21 +1,4 @@
-//import {Entity, PrimaryGeneratedColumn, Column, createConnection, Connection, Repository} from 'typeorm';
 import {Entity, PrimaryGeneratedColumn, Column} from 'typeorm';
-
-// let connection:Connection;
-
-// export async function getProductRepository(): Promise<Repository<MessageStatistics>> {
-//   if (connection===undefined) {
-//     connection = await createConnection({
-//       type: 'sqlite',
-//       database: 'echo.db',
-//       synchronize: true,
-//       entities: [
-//         MessageStatistics
-//       ],
-//     });
-//   }
-//   return connection.getRepository(MessageStatistics);
-// }
 
 @Entity()
 export class MessageStatistics {

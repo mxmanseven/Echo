@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Message } from './message';
 
-
 const baseUrl = 'http://localhost:4201';
 
 @Injectable({
