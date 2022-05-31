@@ -5,7 +5,7 @@ This is a simple echo web application. The web app can send a message to the ser
 ## Build / Run it
 
  1. Navigate to EchoClient and  run the commands **npm install** then  **ng serve**.
- 2. Navigate to EchoServer and run the command **npx tsc** then **node dist/server.js**.
+ 2. Navigate to EchoServer and run the commands **npm install**, **npx tsc**, then **node dist/server.js**.
  3. Navigate a browser to http://localhost:4200/ and try out the app!
 
 The file explorer is accessible using the button in left corner of the navigation bar. You can create a new file by clicking the **New file** button in the file explorer. You can also create folders by clicking the **New folder** button.
