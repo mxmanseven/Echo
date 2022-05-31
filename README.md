@@ -16,4 +16,4 @@ The SQLite database is created under EchoServer and is called echo.db. Access th
 ## Future Work
 
  - Front and back end unit tests.
- - Authorization: add JWT auth
+ - Authorization: add JWT auth and user management.

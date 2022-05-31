@@ -11,6 +11,14 @@ router.post('/message', async function (req: Request, res: Response, next: NextF
         var messageStatistics = await repository.findOne({sourceIpAddress: req.ip});
         const message: string = req.body.message;
 
+        // TODO: If this web service is to scale horizontally (multiple instances) 
+        // this code is vulnerable to a race condition. If there are concurrent multiple 
+        // requests from the same IP address message stats can be wrong. 
+        // To work around this I would look into splitting the work of saving a 
+        // message and calculating the IP address message stats. The web service would 
+        // simply insert a new message into a new table (maybe tblMessage). 
+        // Some other service or task would then aggregate the message statistics by IP address. 
+
         if (!messageStatistics) {
         // we have not seen this ip address before, add the new message stats 
         messageStatistics = new MessageStatistics();
