@@ -25,7 +25,7 @@
       id="message"
       formControlName="message"
       name="message"
-      rows="3" cols="80"></textarea>
+      rows="3" cols="60"></textarea>
   </div>
 
   <button *ngIf="echoForm.get('message')?.valid"
@@ -35,7 +35,8 @@
     <label>Response</label> 
     <textarea 
       readonly
-      rows="10" cols="80">{{response | json}}</textarea>
+      style="background-color: lightgrey;"
+      rows="10" cols="60">{{response | json}}</textarea>
   </div>
 </form>
 
